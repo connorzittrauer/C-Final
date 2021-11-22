@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\basic_cat.jpg" />
+    <None Remove="Resources\cat_leaving.bmp" />
+    <None Remove="Resources\cat_leaving.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\basic_cat.jpg" />
+    <Resource Include="Resources\cat_leaving.bmp" />
+    <Resource Include="Resources\cat_leaving.jpg" />
+  </ItemGroup>
+
+</Project>
