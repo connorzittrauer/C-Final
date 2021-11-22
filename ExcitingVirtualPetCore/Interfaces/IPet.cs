@@ -27,7 +27,7 @@ namespace ExcitingVirtualPetCore
         void incrementHunger();
         void decrementFood();
         void decrementHunger();
-        void setEating(bool value);
+        //void setEating(bool value);
 
         //accessors
         int GET_MAX_HUNGER();

@@ -37,7 +37,7 @@ namespace ExcitingVirtualPetCore
             startDrinking = 6;
 
             sleepiness = 2;
-            this.State = new Eating(this);
+            this.State = new Normal(this);
         }
 
 

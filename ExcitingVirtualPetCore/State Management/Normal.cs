@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ExcitingVirtualPetCore.State_Management
+namespace ExcitingVirtualPetCore
 {
     class Normal : IPetState
     {
@@ -11,25 +11,34 @@ namespace ExcitingVirtualPetCore.State_Management
         public Normal(Pet pet)
         {
             this.pet = pet;
+            pet.State = new Eating(this.pet);
+            pet.State = new Sleeping(this.pet);
+            pet.State = new Drinking(this.pet);
+
         }
         public void Play()
         {
-            throw new NotImplementedException();
+            
+            if (pet.getBoredom() > pet.GET_MIN_BOREDOM())
+            {
+                pet.decrementBoredom();
+            }
+
         }
 
         public void TryToDrink()
         {
-            throw new NotImplementedException();
+            
         }
 
         public void TryToEat()
         {
-            throw new NotImplementedException();
+
         }
 
         public void TryToSleep()
         {
-            throw new NotImplementedException();
+         
         }
     }
 }

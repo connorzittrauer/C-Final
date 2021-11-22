@@ -9,8 +9,6 @@ namespace ExcitingVirtualPetCore
     {
         Pet pet;
 
-        //You’ll want to eventually pull the logic that defines drinking out of the Pet class entirely to put into TryToDrink.
-        //The TryToDrink in pet references values in the Pet class itself, so you’ll need to expose those either with methods or properties. 
 
         public Drinking(Pet pet)
         {
@@ -25,10 +23,12 @@ namespace ExcitingVirtualPetCore
                 pet.decrementThirst();
             }
 
-            if (pet.getThirst() == pet.GET_MIN_THIRST() || pet.getWater() == pet.GET_MIN_WATER()) pet.setDrinking(false);
+            if (pet.getThirst() == pet.GET_MIN_THIRST() || pet.getWater() == pet.GET_MIN_WATER())
+            {
+                pet.State = new Normal(this.pet);
+            }
 
-            Debug.WriteLine("Currently drinking");
-            pet.State = new Eating(this.pet);
+
 
         }
 

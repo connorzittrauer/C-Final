@@ -33,9 +33,12 @@ namespace ExcitingVirtualPetCore
 
             }
 
-            if (pet.getHunger() == pet.GET_MIN_HUNGER() || pet.getFood() == pet.GET_MIN_FOOD()) pet.setEating(false);
+            if (pet.getHunger() == pet.GET_MIN_HUNGER() || pet.getFood() == pet.GET_MIN_FOOD())
+            {
+                pet.State = new Normal(this.pet);
+            }
 
-            pet.State = new Sleeping(this.pet);
+
         }
 
         public void Play()
