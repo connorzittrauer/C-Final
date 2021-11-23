@@ -41,7 +41,9 @@ namespace ExcitingVirtualPetCore
         protected int startDrinking;
 
         protected int sleepiness;
-        
+
+        protected bool type;
+
 
         //protected bool currentlyEating = false;
         //protected bool currentlyDrinking = false;
@@ -357,8 +359,6 @@ namespace ExcitingVirtualPetCore
         {
             return sleepiness >= MAX_SLEEPINESS;
         }
-
-
 
     }
 }

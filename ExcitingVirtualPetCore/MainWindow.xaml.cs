@@ -135,7 +135,18 @@ namespace ExcitingVirtualPetCore
                 using (Stream input = File.OpenRead(openDialog.FileName))
                 using (BinaryReader reader = new BinaryReader(input))
                 {
-                    CurrentPet = JsonSerializer.Deserialize<Pet>(reader.ReadString());
+    
+                    if (CurrentPet.GetType() == typeof(Cat))
+                    {
+                        CurrentPet = JsonSerializer.Deserialize<Cat>(reader.ReadString());
+                    }
+                    if (CurrentPet.GetType() == typeof(Dog))
+                    {
+                        CurrentPet = JsonSerializer.Deserialize<Dog>(reader.ReadString());
+                    }
+
+                    //upcast back to IPET
+                    CurrentPet = (IPet)CurrentPet;
                 }
             }
         }
@@ -147,9 +158,18 @@ namespace ExcitingVirtualPetCore
                 using (Stream output = File.Create(saveDialog.FileName))
                 using (BinaryWriter writer = new BinaryWriter(output))
                 {
-                    var jsonPet = JsonSerializer.Serialize((Pet)CurrentPet);
-                    Debug.WriteLine(jsonPet);
-                    writer.Write(jsonPet);
+                    if (CurrentPet.GetType() == typeof(Cat))
+                    {
+                        var jsonPet = JsonSerializer.Serialize((Cat)CurrentPet);
+                        Debug.WriteLine(jsonPet);
+                        writer.Write(jsonPet);
+                    }
+                    if (CurrentPet.GetType() == typeof(Dog))
+                    {
+                        var jsonPet = JsonSerializer.Serialize((Dog)CurrentPet);
+                        Debug.WriteLine(jsonPet);
+                        writer.Write(jsonPet);
+                    }
                 }
             }
         }

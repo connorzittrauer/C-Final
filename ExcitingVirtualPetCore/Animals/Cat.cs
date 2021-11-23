@@ -39,5 +39,6 @@ namespace ExcitingVirtualPetCore
             sleepiness = 2;
             this.State = new Normal(this);
         }
+
     }
 }
