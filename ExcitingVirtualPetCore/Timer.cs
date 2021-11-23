@@ -79,7 +79,8 @@ namespace ExcitingVirtualPetCore
                 drinkCounter++;
                 sleepCounter++;
                 eatCounter++;
-
+                //boredomCounter++;
+                
                 if (eatCounter >= eatFrame)
                 {
                     CurrentPet.TryToEat();

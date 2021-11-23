@@ -32,6 +32,7 @@ namespace ExcitingVirtualPetCore
         {
             pet.incrementSleepiness();
             pet.State = new Normal(this.pet);
+
             if (pet.GetSleepiness() == pet.GET_MAX_SLEEPINESS())
             {
                 pet.setSleepState(true);
