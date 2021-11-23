@@ -38,8 +38,6 @@ namespace ExcitingVirtualPetCore
                 pet.setSleepState(true);
             }
 
-
-
         }
     }
 }

@@ -28,7 +28,7 @@ namespace ExcitingVirtualPetCore
         SaveFileDialog saveDialog;
         OpenFileDialog openDialog;
         Timer timer = new Timer();
-        
+        int type;
         public MainWindow()
         {
             InitializeComponent();
@@ -69,7 +69,12 @@ namespace ExcitingVirtualPetCore
         private void InitializeCat()
         {
             ISimpleFactory factory = new Factory();
-            CurrentPet = factory.CreateAnimal();
+            CurrentPet = factory.CreateAnimal(type);
+
+            if (CurrentPet.GetType() == typeof(Cat)) { type = 1; }
+            if (CurrentPet.GetType() == typeof(Dog)) { type = 2; }
+
+
             PetImage.Source = CurrentPet.currentImageState();
         }
 
