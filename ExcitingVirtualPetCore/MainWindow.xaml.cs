@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Threading;
 using System.Windows;
+using System.IO;
+using System.Text.Json;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -128,25 +130,33 @@ namespace ExcitingVirtualPetCore
 
         private void Button_Load(object sender, RoutedEventArgs e)
         {
-
+            if (openDialog.ShowDialog() == true)
+            {
+                using (Stream input = File.OpenRead(openDialog.FileName))
+                using (BinaryReader reader = new BinaryReader(input))
+                {
+                    CurrentPet = JsonSerializer.Deserialize<Pet>(reader.ReadString());
+                }
+            }
         }
 
         private void Button_Save(object sender, RoutedEventArgs e)
         {
-
+            if (saveDialog.ShowDialog() == true)
+            {
+                using (Stream output = File.Create(saveDialog.FileName))
+                using (BinaryWriter writer = new BinaryWriter(output))
+                {
+                    var jsonPet = JsonSerializer.Serialize((Pet)CurrentPet);
+                    Debug.WriteLine(jsonPet);
+                    writer.Write(jsonPet);
+                }
+            }
         }
-
-
-
-        //private void MenuItem_Click(object sender, RoutedEventArgs e)
-        //{
-
-        //}
-
-        //private void _Load(object sender, RoutedEventArgs e)
-        //{
-        //    MessageBox.Show("Loaded");
-        //}
     }
 
-}
+
+
+
+    }
+
