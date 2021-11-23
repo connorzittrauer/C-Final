@@ -17,6 +17,8 @@ namespace ExcitingVirtualPetCore
 
         public void TryToDrink()
         {
+            pet.decrementWater();
+            pet.decrementThirst();
 
             if (pet.getThirst() == pet.GET_MIN_THIRST() || pet.getWater() == pet.GET_MIN_WATER())
             {
