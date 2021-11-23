@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Diagnostics;
 using System.Windows.Media.Effects;
+using Microsoft.Win32;
 
 namespace ExcitingVirtualPetCore
 {
@@ -22,6 +23,8 @@ namespace ExcitingVirtualPetCore
     {
 
         IPet CurrentPet = null;
+        SaveFileDialog saveDialog;
+        OpenFileDialog openDialog;
         Timer timer = new Timer();
         
         public MainWindow()
@@ -33,6 +36,14 @@ namespace ExcitingVirtualPetCore
             timer.InitializeFrames();
             timer.initialize(MainLoopTimer_Tick);
 
+            saveDialog = new SaveFileDialog();
+            openDialog = new OpenFileDialog();
+
+
+            saveDialog.Filter = "pet files |*.pet";
+            openDialog.Filter = "pet files |*.pet";
+            saveDialog.DefaultExt = "pet files |*.pet";
+            openDialog.DefaultExt = "pet files |*.pet";
         }
 
         private void MainLoopTimer_Tick(object sender, EventArgs e)
@@ -115,10 +126,27 @@ namespace ExcitingVirtualPetCore
             CurrentPet.pat();
         }
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        private void Button_Load(object sender, RoutedEventArgs e)
         {
 
         }
+
+        private void Button_Save(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+
+
+        //private void MenuItem_Click(object sender, RoutedEventArgs e)
+        //{
+
+        //}
+
+        //private void _Load(object sender, RoutedEventArgs e)
+        //{
+        //    MessageBox.Show("Loaded");
+        //}
     }
 
 }

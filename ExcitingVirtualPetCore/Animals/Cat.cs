@@ -31,7 +31,7 @@ namespace ExcitingVirtualPetCore
             currentWater = 1;
             hunger = 5;
             affection = 0;
-            thirst = 5;
+            thirst = 7;
             boredom = 5;
             startEating = 6;
             startDrinking = 6;
@@ -39,8 +39,5 @@ namespace ExcitingVirtualPetCore
             sleepiness = 2;
             this.State = new Normal(this);
         }
-
-
-
     }
 }

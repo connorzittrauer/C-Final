@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ExcitingVirtualPetCore"
         mc:Ignorable="d"
-        Title="Virtual Pet" Height="727" Width="1108" Background="Black">
+        Title="Virtual Pet" Height="730" Width="1436" Background="Black">
 
 
 
@@ -34,24 +34,22 @@
             <ColumnDefinition Width="44*"/>
             <ColumnDefinition Width="28*"/>
             <ColumnDefinition Width="52*"/>
-            <ColumnDefinition Width="32*"/>
+            <ColumnDefinition Width="26*"/>
+            <ColumnDefinition Width="6*"/>
             <ColumnDefinition Width="9*"/>
             <ColumnDefinition Width="7*"/>
         </Grid.ColumnDefinitions>
-        <GroupBox Header="Pet Display" Margin="37,30,10,131" Grid.ColumnSpan="10" Grid.Column="3">
+        <GroupBox Header="Pet Display" Margin="60,48,84,179" Grid.ColumnSpan="10" Grid.Column="3">
             <Image x:Name="PetImage"  />
         </GroupBox>
 
         <DockPanel Grid.ColumnSpan="6" Margin="0,0,22,0">
 
-            <Menu DockPanel.Dock="Top" Width="180" Height="20">
-                <MenuItem Header="_Action" Click="MenuItem_Click">
-                    <MenuItem Header="_Load"/>
-                    <MenuItem Header="_Save"/>
-                    <MenuItem Header="_Close"/>
-                </MenuItem>
-            </Menu>
-            <StackPanel></StackPanel>
+
+            <StackPanel>
+                <Button Content="Load" Width="237" Click="Button_Load"/>
+                <Button Content="Save" Width="237" Click="Button_Save"/>
+            </StackPanel>
         </DockPanel>
 
         <GroupBox Header="Resources" Margin="29,600,10,10" Grid.ColumnSpan="11" Grid.Column="2" >
@@ -68,7 +66,7 @@
             </StackPanel>
         </GroupBox>
 
-        <GroupBox Header="Pet Controls" Margin="25,30,13,282" Grid.Column="14" Grid.ColumnSpan="7" >
+        <GroupBox Header="Pet Controls" Margin="25,30,7,282" Grid.Column="14" Grid.ColumnSpan="7" >
             <StackPanel Height="276">
                 <Button x:Name="PetFeedButton" Content="Feed Cat" Margin="0,5,0,5" Click="PetFeedButton_Click" Height="45" Width="396"></Button>
                 <Button x:Name="PetWaterButton" Content="Give Cat Water" Margin="0,5,0,5" Click="PetWaterButton_Click" Height="45" Width="396"></Button>
@@ -77,7 +75,7 @@
             </StackPanel>
         </GroupBox>
 
-        <GroupBox Header="Pet Facts" Margin="25,439,3,10" Grid.Column="14" Grid.ColumnSpan="9">
+        <GroupBox Header="Pet Facts" Margin="25,439,3,10" Grid.Column="14" Grid.ColumnSpan="10">
             <StackPanel Height="232">
                 <StackPanel Orientation="Horizontal" Margin="0,10,0,10">
                     <Label Content="Hunger" HorizontalAlignment="Left" Width="60"></Label>

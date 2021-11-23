@@ -11,7 +11,6 @@ namespace ExcitingVirtualPetCore
 
         public override IPet CreateAnimal()
         {
-        
             pet = new Cat();
             PetFactory.Add(pet);
             return pet;
