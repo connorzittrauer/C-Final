@@ -24,14 +24,12 @@ namespace ExcitingVirtualPetCore
         public void TryToEat()
         {
 
-            if (pet.getFood() > pet.GET_MIN_FOOD())
-            {
+            //if (pet.getFood() > pet.GET_MIN_FOOD())
+            //{
                 pet.decrementFood();
-
                 pet.decrementHunger();
 
-
-            }
+            //}
 
             if (pet.getHunger() == pet.GET_MIN_HUNGER() || pet.getFood() == pet.GET_MIN_FOOD())
             {

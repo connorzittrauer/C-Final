@@ -30,15 +30,15 @@ namespace ExcitingVirtualPetCore
 
         public void TryToSleep()
         {
-            if (pet.GetSleepiness() < pet.GET_MAX_SLEEPINESS())
+            pet.incrementSleepiness();
+            pet.State = new Normal(this.pet);
+            if (pet.GetSleepiness() == pet.GET_MAX_SLEEPINESS())
             {
-                pet.incrementSleepiness();
-            }
-            else
-            {
-                pet.State = new Normal(this.pet);
                 pet.setSleepState(true);
             }
+
+
+
         }
     }
 }
