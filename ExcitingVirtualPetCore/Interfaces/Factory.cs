@@ -21,6 +21,10 @@ namespace ExcitingVirtualPetCore
                     pet = new Dog();
                     PetFactory.Add(pet);
                     break;
+                case 3:
+                    pet = new Bird();
+                    PetFactory.Add(pet);
+                    break;
                 default:
                     pet = new Cat();
                     PetFactory.Add(pet);

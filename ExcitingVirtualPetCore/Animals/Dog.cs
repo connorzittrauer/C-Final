@@ -31,7 +31,7 @@ namespace ExcitingVirtualPetCore
             hunger = 5;
             affection = 0;
             thirst = 7;
-            boredom = 5;
+            boredom = 8;
             startEating = 6;
             startDrinking = 6;
             sleepiness = 2;

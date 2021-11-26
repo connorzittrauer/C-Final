@@ -68,10 +68,10 @@
 
         <GroupBox Header="Pet Controls" Margin="25,30,7,282" Grid.Column="14" Grid.ColumnSpan="7" >
             <StackPanel Height="276">
-                <Button x:Name="PetFeedButton" Content="Feed Cat" Margin="0,5,0,5" Click="PetFeedButton_Click" Height="45" Width="396"></Button>
-                <Button x:Name="PetWaterButton" Content="Give Cat Water" Margin="0,5,0,5" Click="PetWaterButton_Click" Height="45" Width="396"></Button>
-                <Button x:Name="PetPlayButton" Content="Play With Cat" Margin="0,5,0,5" Click="PetPlayButton_Click" Height="45" Width="396"></Button>
-                <Button x:Name="PetPatButton" Content="Pat Cat" Margin="0,5,0,5" Click="PetPatButton_Click" Height="45" Width="396"></Button>
+                <Button x:Name="PetFeedButton" Content="Feed Pet&#xD;&#xA;" Margin="0,5,0,5" Click="PetFeedButton_Click" Height="45" Width="396"></Button>
+                <Button x:Name="PetWaterButton" Content="Water Pet&#xD;&#xA;" Margin="0,5,0,5" Click="PetWaterButton_Click" Height="45" Width="396"></Button>
+                <Button x:Name="PetPlayButton" Content="Play With Pet&#xD;&#xA;" Margin="0,5,0,5" Click="PetPlayButton_Click" Height="45" Width="396"></Button>
+                <Button x:Name="PetPatButton" Content="Pat Pet&#xD;&#xA;" Margin="0,5,0,5" Click="PetPatButton_Click" Height="45" Width="396"></Button>
             </StackPanel>
         </GroupBox>
 

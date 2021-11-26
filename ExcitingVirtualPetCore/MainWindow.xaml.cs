@@ -70,7 +70,7 @@ namespace ExcitingVirtualPetCore
         {
             ISimpleFactory factory = new Factory();
 
-            CurrentPet = factory.CreateAnimal(2);
+            CurrentPet = factory.CreateAnimal(3);
 
             Debug.WriteLine(type);
 

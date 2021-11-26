@@ -8,6 +8,8 @@
 
   <ItemGroup>
     <None Remove="Resources\basic_cat.jpg" />
+    <None Remove="Resources\bird.jpg" />
+    <None Remove="Resources\bird_leaving.jpg" />
     <None Remove="Resources\cat_leaving.bmp" />
     <None Remove="Resources\cat_leaving.jpg" />
     <None Remove="Resources\dog.jpg" />
@@ -16,6 +18,8 @@
 
   <ItemGroup>
     <Resource Include="Resources\basic_cat.jpg" />
+    <Resource Include="Resources\bird.jpg" />
+    <Resource Include="Resources\bird_leaving.jpg" />
     <Resource Include="Resources\cat_leaving.bmp" />
     <Resource Include="Resources\cat_leaving.jpg" />
     <Resource Include="Resources\dog.jpg" />
