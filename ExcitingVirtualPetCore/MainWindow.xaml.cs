@@ -69,11 +69,10 @@ namespace ExcitingVirtualPetCore
         private void InitializeCat()
         {
             ISimpleFactory factory = new Factory();
-            CurrentPet = factory.CreateAnimal(type);
 
-            if (CurrentPet.GetType() == typeof(Cat)) { type = 1; }
-            if (CurrentPet.GetType() == typeof(Dog)) { type = 2; }
+            CurrentPet = factory.CreateAnimal(2);
 
+            Debug.WriteLine(type);
 
             PetImage.Source = CurrentPet.currentImageState();
         }
@@ -140,18 +139,20 @@ namespace ExcitingVirtualPetCore
                 using (Stream input = File.OpenRead(openDialog.FileName))
                 using (BinaryReader reader = new BinaryReader(input))
                 {
-    
-                    if (CurrentPet.GetType() == typeof(Cat))
-                    {
-                        CurrentPet = JsonSerializer.Deserialize<Cat>(reader.ReadString());
-                    }
-                    if (CurrentPet.GetType() == typeof(Dog))
-                    {
-                        CurrentPet = JsonSerializer.Deserialize<Dog>(reader.ReadString());
-                    }
+                    //needs to check if the pet being READ IN is the of the particular type 
+                    //if (CurrentPet.GetType() == typeof(Cat))
+                    //{
+                    //    CurrentPet = JsonSerializer.Deserialize<Cat>(reader.ReadString());
+                    //    type = 1;
+                    //    Debug.WriteLine("Is this executing");
+                    //    InitializeCat();
+                    //}
+                    
 
+
+                    CurrentPet = JsonSerializer.Deserialize<Pet>(reader.ReadString());
                     //upcast back to IPET
-                    CurrentPet = (IPet)CurrentPet;
+
                 }
             }
         }

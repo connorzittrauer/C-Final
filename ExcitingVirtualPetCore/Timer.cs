@@ -90,7 +90,7 @@ namespace ExcitingVirtualPetCore
                 if (drinkCounter >= drinkFrame)
                 {
                     CurrentPet.TryToDrink();
-                    thirstCounter = 0;
+                    drinkCounter = 0;
 
                 }
 

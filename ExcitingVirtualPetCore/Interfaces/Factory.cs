@@ -22,7 +22,7 @@ namespace ExcitingVirtualPetCore
                     PetFactory.Add(pet);
                     break;
                 default:
-                    pet = new Dog();
+                    pet = new Cat();
                     PetFactory.Add(pet);
                     break;
                        
