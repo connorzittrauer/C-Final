@@ -120,7 +120,7 @@ namespace ExcitingVirtualPetCore
             drinkFrame = 60;
             
             //higher value
-            sleepFrame = 540;
+            sleepFrame = 340;
 
             //initialize the starter counters to 0
             hungerCounter = 0;

@@ -37,6 +37,7 @@ namespace ExcitingVirtualPetCore
         protected int boredom;
         protected int currentFood;
         protected int currentWater;
+
         protected int startEating;
         protected int startDrinking;
 
@@ -44,16 +45,11 @@ namespace ExcitingVirtualPetCore
 
         protected bool type;
 
-
-        //protected bool currentlyEating = false;
-        //protected bool currentlyDrinking = false;
-
-
         protected BitmapImage hereImage, leavingImage;
 
         protected bool currentlySleeping;
 
-        //needs a state
+
 
         public IPetState state;
 
@@ -64,30 +60,93 @@ namespace ExcitingVirtualPetCore
         }
 
 
+        //public BitmapImage HereImage
+        //{
+        //    get { return hereImage; }
+        //    set { hereImage = value; }
+        //}
+        //public BitmapImage LeavingImage
+        //{
+        //    get { return leavingImage; }
+        //    set { hereImage = value; }
+        //}
+        public int Sleepiness
+        {
+            get { return sleepiness; }
+            set { sleepiness = value; }
+        }
+
+
+        public int CurrentFood
+        {
+            get { return currentFood; }
+            set { currentFood = value; }
+        }
+        public int CurrentWater
+        {
+            get { return currentWater; }
+            set { currentWater = value; }
+        }
+        public int Hunger
+        {
+            get { return hunger; }
+            set { hunger = value; }
+        }
+        public int Affection
+        {
+            get { return affection; }
+            set { affection = value; }
+        }
+        public int Thirst
+        {
+            get { return thirst; }
+            set { thirst = value; }
+        }
+        public int Boredom
+        {
+            get { return boredom; }
+            set { boredom = value; }
+        }
+        public int StartEating
+        {
+            get { return startEating; }
+            set { startEating = value; }
+        }
+        public int StartDrinking
+        {
+            get { return startDrinking; }
+            set { startDrinking = value; }
+        }
+
 
         public Pet()
         {
-            //currentlyEating = false;
-            //currentlyDrinking = false;
-            //currentlySleeping = false;
-            //this.State = new Eating(this);
+            //these are universal to all inherited pets
+            MAX_HUNGER = 10;
+            MIN_HUNGER = 0;
+            MAX_AFFECTION = 10;
+            MIN_AFFECTION = 0;
+            MAX_THIRST = 10;
+            MIN_THIRST = 0;
+            MAX_BOREDOM = 10;
+            MIN_BOREDOM = 0;
+            MAX_FOOD = 10;
+            MIN_FOOD = 0;
+            MAX_WATER = 10;
+            MIN_WATER = 0;
+            MAX_SLEEPINESS = 10;
+
         }
 
 
         public void IncreaseHunger() {
             if (this.hunger < MAX_HUNGER) hunger++;
-      
 
-            //if (this.hunger > startEating)
-            //{
-            //    currentlyEating = true;
-            //}
         }
         public void IncreaseThirst() 
         {
             if (this.thirst < MAX_THIRST) thirst++;
 
-            //if (this.thirst > startDrinking) currentlyDrinking = true;
         }
 
 
@@ -104,56 +163,25 @@ namespace ExcitingVirtualPetCore
 
         public void TryToDrink()
         {
-            //if (currentWater > MIN_WATER)
-            //{
-            //    currentWater--;
-            //    thirst--;
-            //}
-
-            //if (thirst == MIN_THIRST || currentWater == MIN_WATER) currentlyDrinking = false;
-
             state.TryToDrink();
 
         }
 
         public void TryToEat()
         {
-
-            //if (currentFood > MIN_FOOD)
-            //{
-            //    currentFood--;
-            //    hunger--;
-            //}
-
-            //if (hunger == MIN_HUNGER || currentFood == MIN_FOOD) currentlyEating = false;
-
             state.TryToEat();
-
         }
 
 
         public void TryToSleep()
         {
-            //if (sleepiness < MAX_SLEEPINESS)
-            //{
-            //    sleepiness++;
-            //}
-            //else { currentlySleeping = true; }
-
             state.TryToSleep();
-
         }
 
 
         public void Play()
         {
-            //if (boredom > MIN_BOREDOM)
-            //{
-            //    boredom--;
-            //}
-
             state.Play();
-
         }
 
         public bool RanOff() 

@@ -29,12 +29,14 @@ namespace ExcitingVirtualPetCore
         OpenFileDialog openDialog;
         Timer timer = new Timer();
         int type;
+        ISimpleFactory factory;
+
         public MainWindow()
         {
             InitializeComponent();
 
             //set up initial stuff
-            InitializeCat();
+            InitializePet();
             timer.InitializeFrames();
             timer.initialize(MainLoopTimer_Tick);
 
@@ -66,11 +68,11 @@ namespace ExcitingVirtualPetCore
         }
 
         //Set up main data
-        private void InitializeCat()
+        private void InitializePet()
         {
-            ISimpleFactory factory = new Factory();
+           factory = new Factory();
 
-            CurrentPet = factory.CreateAnimal(3);
+            CurrentPet = factory.CreateAnimal(1);
 
             Debug.WriteLine(type);
 
@@ -97,6 +99,7 @@ namespace ExcitingVirtualPetCore
             {
                 MessageBox.Show("Pet Is Asleep, return back later...");
                 timer.stopTimer();
+
             }
         }
 
@@ -139,21 +142,15 @@ namespace ExcitingVirtualPetCore
                 using (Stream input = File.OpenRead(openDialog.FileName))
                 using (BinaryReader reader = new BinaryReader(input))
                 {
-                    //needs to check if the pet being READ IN is the of the particular type 
-                    //if (CurrentPet.GetType() == typeof(Cat))
-                    //{
-                    //    CurrentPet = JsonSerializer.Deserialize<Cat>(reader.ReadString());
-                    //    type = 1;
-                    //    Debug.WriteLine("Is this executing");
-                    //    InitializeCat();
-                    //}
-                    
 
-
-                    CurrentPet = JsonSerializer.Deserialize<Pet>(reader.ReadString());
-                    //upcast back to IPET
-
+                    CurrentPet = JsonSerializer.Deserialize<Cat>(reader.ReadString());
+                    //InitializePet();
                 }
+
+
+
+
+                
             }
         }
 
@@ -173,6 +170,12 @@ namespace ExcitingVirtualPetCore
                     if (CurrentPet.GetType() == typeof(Dog))
                     {
                         var jsonPet = JsonSerializer.Serialize((Dog)CurrentPet);
+                        Debug.WriteLine(jsonPet);
+                        writer.Write(jsonPet);
+                    }
+                    if (CurrentPet.GetType() == typeof(Bird))
+                    {
+                        var jsonPet = JsonSerializer.Serialize((Bird)CurrentPet);
                         Debug.WriteLine(jsonPet);
                         writer.Write(jsonPet);
                     }

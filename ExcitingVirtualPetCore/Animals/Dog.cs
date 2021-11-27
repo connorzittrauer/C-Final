@@ -12,19 +12,19 @@ namespace ExcitingVirtualPetCore
             hereImage = new BitmapImage(new Uri("Resources/dog.jpg", UriKind.Relative));
             leavingImage = new BitmapImage(new Uri("Resources/dog_leaving.png", UriKind.Relative));
 
-            MAX_HUNGER = 10;
-            MIN_HUNGER = 0;
-            MAX_AFFECTION = 10;
-            MIN_AFFECTION = 0;
-            MAX_THIRST = 10;
-            MIN_THIRST = 0;
-            MAX_BOREDOM = 10;
-            MIN_BOREDOM = 0;
-            MAX_FOOD = 10;
-            MIN_FOOD = 0;
-            MAX_WATER = 10;
-            MIN_WATER = 0;
-            MAX_SLEEPINESS = 10;
+            //MAX_HUNGER = 10;
+            //MIN_HUNGER = 0;
+            //MAX_AFFECTION = 10;
+            //MIN_AFFECTION = 0;
+            //MAX_THIRST = 10;
+            //MIN_THIRST = 0;
+            //MAX_BOREDOM = 10;
+            //MIN_BOREDOM = 0;
+            //MAX_FOOD = 10;
+            //MIN_FOOD = 0;
+            //MAX_WATER = 10;
+            //MIN_WATER = 0;
+            //MAX_SLEEPINESS = 10;
 
             currentFood = 1;
             currentWater = 1;

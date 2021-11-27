@@ -7,5 +7,6 @@ namespace ExcitingVirtualPetCore
     abstract class ISimpleFactory
     {
         public abstract IPet CreateAnimal(int value);
+        public abstract Pet LoadPet();
     }
 }
