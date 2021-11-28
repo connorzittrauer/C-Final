@@ -18,6 +18,7 @@ using System.Windows.Shapes;
 using System.Diagnostics;
 using System.Windows.Media.Effects;
 using Microsoft.Win32;
+using System.Windows.Media.Animation;
 
 namespace ExcitingVirtualPetCore
 {
@@ -30,7 +31,7 @@ namespace ExcitingVirtualPetCore
         Timer timer = new Timer();
         int type;
         ISimpleFactory factory;
-
+        private bool changedPets;
         public MainWindow()
         {
             InitializeComponent();
@@ -70,7 +71,7 @@ namespace ExcitingVirtualPetCore
         //Set up main data
         private void InitializePet()
         {
-           factory = new Factory();
+            factory = new Factory();
 
             CurrentPet = factory.CreateAnimal(1);
             PetImage.Source = CurrentPet.currentImageState();
@@ -94,6 +95,9 @@ namespace ExcitingVirtualPetCore
         {
             if (CurrentPet.IsSleeping()) 
             {
+                //PetGroupBox.Effect = new BlurEffect() { Radius = 30 };
+                blurringEffect.BeginAnimation( BlurEffect.RadiusProperty, new DoubleAnimation(30, TimeSpan.FromSeconds(3)));
+
                 MessageBox.Show("Pet Is Asleep, return back later...");
                 timer.stopTimer();
 
@@ -150,6 +154,7 @@ namespace ExcitingVirtualPetCore
                     CurrentPet = JsonSerializer.Deserialize<Pet>(reader.ReadString(), options);
                     PetImage.Source = CurrentPet.currentImageState();
 
+                    changedPets = true;
                 }
             }
         }

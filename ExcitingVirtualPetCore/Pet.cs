@@ -356,8 +356,6 @@ namespace ExcitingVirtualPetCore
             thirst--;
         }
 
-
-
         public void pat()
         {
             if (affection < MAX_AFFECTION)

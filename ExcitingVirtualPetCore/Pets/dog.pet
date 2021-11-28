@@ -2,9 +2,9 @@
   "TypeDiscriminator": 2,
   "TypeValue": {
     "Sleepiness": 2,
-    "CurrentFood": 0,
+    "CurrentFood": 1,
     "CurrentWater": 1,
-    "Hunger": 4,
+    "Hunger": 5,
     "Affection": 0,
     "Thirst": 7,
     "Boredom": 8,
