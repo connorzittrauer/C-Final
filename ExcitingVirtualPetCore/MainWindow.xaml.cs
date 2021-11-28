@@ -72,7 +72,7 @@ namespace ExcitingVirtualPetCore
         {
            factory = new Factory();
 
-            CurrentPet = factory.CreateAnimal(2);
+            CurrentPet = factory.CreateAnimal(1);
             PetImage.Source = CurrentPet.currentImageState();
         }
 
@@ -140,39 +140,30 @@ namespace ExcitingVirtualPetCore
                 using (BinaryReader reader = new BinaryReader(input))
                 {
 
-                    //var options = new JsonSerializerOptions
-                    //{
-                    //    Converters = { new PetClassConverter() },
-                    //    WriteIndented = true
-                    //};
+                    var options = new JsonSerializerOptions
+                    {
+                        Converters = { new PetClassConverter() },
+                        WriteIndented = true
 
+                    };
 
-                    //CurrentPet = JsonSerializer.Deserialize<C>(reader.ReadString());
-                    //CurrentPet = JsonSerializer.Deserialize<Pet>(reader.ReadString());
-       
-                    CurrentPet = JsonSerializer.Deserialize<Pet>(reader.ReadString());
+                    CurrentPet = JsonSerializer.Deserialize<Pet>(reader.ReadString(), options);
+                    PetImage.Source = CurrentPet.currentImageState();
 
                 }
             }
         }
 
+
+
         private void Button_Save(object sender, RoutedEventArgs e)
         {
-            Debug.WriteLine("TYPE: " + CurrentPet.GetType());
-
-
             if (saveDialog.ShowDialog() == true)
             {
                 using (Stream output = File.Create(saveDialog.FileName))
                 using (BinaryWriter writer = new BinaryWriter(output))
 
                 {
-                    //var options = new JsonSerializerOptions();
-                    //var jsonPet = JsonSerializer.Serialize(CurrentPet, CurrentPet.GetType(), options);
-                    //writer.Write(jsonPet);
-                    //Debug.WriteLine(jsonPet);
-
-
                     var options = new JsonSerializerOptions
                     {
                         Converters = { new PetClassConverter() },
@@ -180,32 +171,9 @@ namespace ExcitingVirtualPetCore
                     };
 
 
-                    var jsonPet = JsonSerializer.Serialize(CurrentPet, CurrentPet.GetType(),options);
-                    writer.BaseStream.Position = 0;
+                    var jsonPet = JsonSerializer.Serialize(CurrentPet, CurrentPet.GetType(), options);
+                    writer.Write(jsonPet);
                     Debug.WriteLine(jsonPet);
-
-
-
-
-
-                    //if (CurrentPet.GetType() == typeof(Cat))
-                    //{
-                    //    var jsonPet = JsonSerializer.Serialize((Cat)CurrentPet);
-                    //    Debug.WriteLine(jsonPet);
-                    //    writer.Write(jsonPet);
-                    //}
-                    //if (CurrentPet.GetType() == typeof(Dog))
-                    //{
-                    //    var jsonPet = JsonSerializer.Serialize((Dog)CurrentPet);
-                    //    Debug.WriteLine(jsonPet);
-                    //    writer.Write(jsonPet);
-                    //}
-                    //if (CurrentPet.GetType() == typeof(Bird))
-                    //{
-                    //    var jsonPet = JsonSerializer.Serialize((Bird)CurrentPet);
-                    //    Debug.WriteLine(jsonPet);
-                    //    writer.Write(jsonPet);
-                    //}
                 }
             }
         }

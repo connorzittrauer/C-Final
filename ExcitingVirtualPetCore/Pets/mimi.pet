@@ -1,0 +1,14 @@
+ö{
+  "TypeDiscriminator": 2,
+  "TypeValue": {
+    "Sleepiness": 2,
+    "CurrentFood": 0,
+    "CurrentWater": 0,
+    "Hunger": 5,
+    "Affection": 0,
+    "Thirst": 6,
+    "Boredom": 9,
+    "StartEating": 6,
+    "StartDrinking": 6
+  }
+}

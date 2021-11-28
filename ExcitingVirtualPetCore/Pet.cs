@@ -59,17 +59,6 @@ namespace ExcitingVirtualPetCore
             set { state = value; }
         }
 
-
-        //public BitmapImage HereImage
-        //{
-        //    get { return hereImage; }
-        //    set { hereImage = value; }
-        //}
-        //public BitmapImage LeavingImage
-        //{
-        //    get { return leavingImage; }
-        //    set { hereImage = value; }
-        //}
         public int Sleepiness
         {
             get { return sleepiness; }
