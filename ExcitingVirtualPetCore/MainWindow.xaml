@@ -9,44 +9,45 @@
 
 
 
-    <Grid Background="White">
+    <Grid Background="#FFB0B0B0">
 
 
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="23*"/>
-            <ColumnDefinition Width="7*"/>
-            <ColumnDefinition Width="46*"/>
-            <ColumnDefinition Width="95*"/>
-            <ColumnDefinition Width="8*"/>
-            <ColumnDefinition Width="24*"/>
-            <ColumnDefinition Width="26*"/>
-            <ColumnDefinition Width="22*"/>
-            <ColumnDefinition Width="28*"/>
-            <ColumnDefinition Width="91*"/>
-            <ColumnDefinition Width="108*"/>
-            <ColumnDefinition Width="21*"/>
-            <ColumnDefinition Width="93*"/>
             <ColumnDefinition Width="30*"/>
-            <ColumnDefinition Width="174*"/>
-            <ColumnDefinition Width="49*"/>
-            <ColumnDefinition Width="91*"/>
-            <ColumnDefinition Width="44*"/>
-            <ColumnDefinition Width="28*"/>
-            <ColumnDefinition Width="52*"/>
-            <ColumnDefinition Width="26*"/>
-            <ColumnDefinition Width="6*"/>
             <ColumnDefinition Width="9*"/>
-            <ColumnDefinition Width="7*"/>
+            <ColumnDefinition Width="60*"/>
+            <ColumnDefinition Width="123*"/>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="31*"/>
+            <ColumnDefinition Width="34*"/>
+            <ColumnDefinition Width="29*"/>
+            <ColumnDefinition Width="36*"/>
+            <ColumnDefinition Width="118*"/>
+            <ColumnDefinition Width="140*"/>
+            <ColumnDefinition Width="27*"/>
+            <ColumnDefinition Width="22*"/>
+            <ColumnDefinition Width="98*"/>
+            <ColumnDefinition Width="39*"/>
+            <ColumnDefinition Width="226*"/>
+            <ColumnDefinition Width="64*"/>
+            <ColumnDefinition Width="118*"/>
+            <ColumnDefinition Width="57*"/>
+            <ColumnDefinition Width="36*"/>
+            <ColumnDefinition Width="67*"/>
+            <ColumnDefinition Width="34*"/>
+            <ColumnDefinition Width="8*"/>
+            <ColumnDefinition Width="12*"/>
+            <ColumnDefinition Width="9*"/>
         </Grid.ColumnDefinitions>
-        <GroupBox x:Name="PetGroupBox" Header="Pet Display" Margin="60,48,84,179" Grid.ColumnSpan="10" Grid.Column="3">
+        <GroupBox x:Name="PetGroupBox" Header="Pet Display" Margin="60,48,84,179" Grid.ColumnSpan="11" Grid.Column="3">
             <Image x:Name="PetImage"  >
                 <Image.Effect>
                     <BlurEffect Radius="0" x:Name="blurringEffect"/>
                 </Image.Effect>
             </Image>
         </GroupBox>
-        
+
         <DockPanel Grid.ColumnSpan="6" Margin="0,0,22,0">
 
 
@@ -56,7 +57,7 @@
             </StackPanel>
         </DockPanel>
 
-        <GroupBox Header="Resources" Margin="29,600,10,10" Grid.ColumnSpan="11" Grid.Column="2" >
+        <GroupBox Header="Resources" Margin="29,600,10,10" Grid.ColumnSpan="12" Grid.Column="2" >
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <StackPanel HorizontalAlignment="Left" Margin="0,0,10,0">
                     <ProgressBar x:Name="WaterAmountBar" Height="20" Width="165" HorizontalAlignment="Center" Margin="0,5,0,5" Maximum="10"></ProgressBar>
@@ -70,7 +71,7 @@
             </StackPanel>
         </GroupBox>
 
-        <GroupBox Header="Pet Controls" Margin="25,30,7,282" Grid.Column="14" Grid.ColumnSpan="7" >
+        <GroupBox Header="Pet Controls" Margin="25,30,7,282" Grid.Column="15" Grid.ColumnSpan="7" >
             <StackPanel Height="276">
                 <Button x:Name="PetFeedButton" Content="Feed Pet&#xD;&#xA;" Margin="0,5,0,5" Click="PetFeedButton_Click" Height="45" Width="396"></Button>
                 <Button x:Name="PetWaterButton" Content="Water Pet&#xD;&#xA;" Margin="0,5,0,5" Click="PetWaterButton_Click" Height="45" Width="396"></Button>
@@ -79,7 +80,7 @@
             </StackPanel>
         </GroupBox>
 
-        <GroupBox Header="Pet Facts" Margin="25,439,3,10" Grid.Column="14" Grid.ColumnSpan="10">
+        <GroupBox Header="Pet Facts" Margin="25,439,3,10" Grid.Column="15" Grid.ColumnSpan="10">
             <StackPanel Height="232">
                 <StackPanel Orientation="Horizontal" Margin="0,10,0,10">
                     <Label Content="Hunger" HorizontalAlignment="Left" Width="60"></Label>

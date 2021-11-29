@@ -35,20 +35,5 @@ namespace ExcitingVirtualPetCore
 
 
         }
-
-        //public override Pet LoadPet()
-        //{
-        //    Pet PetData = new Pet();
-        //    PetData.Hunger = PetData.Hunger;
-        //    PetData.Sleepiness = PetData.Sleepiness;
-        //    PetData.CurrentFood = PetData.CurrentFood;
-        //    PetData.CurrentWater = PetData.CurrentWater;
-        //    PetData.Affection = PetData.Affection;
-        //    PetData.Thirst = PetData.Thirst;
-        //    PetData.Boredom = PetData.Boredom;
-        //    PetData.StartEating = PetData.StartEating;
-        //    PetData.StartDrinking = PetData.StartDrinking;
-        //    return PetData;
-        //}
     }
 }

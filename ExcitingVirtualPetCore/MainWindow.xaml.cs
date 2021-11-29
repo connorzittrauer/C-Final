@@ -29,9 +29,7 @@ namespace ExcitingVirtualPetCore
         SaveFileDialog saveDialog;
         OpenFileDialog openDialog;
         Timer timer = new Timer();
-        int type;
         ISimpleFactory factory;
-        private bool changedPets;
         public MainWindow()
         {
             InitializeComponent();
@@ -73,7 +71,7 @@ namespace ExcitingVirtualPetCore
         {
             factory = new Factory();
 
-            CurrentPet = factory.CreateAnimal(1);
+            CurrentPet = factory.CreateAnimal(3);
             PetImage.Source = CurrentPet.currentImageState();
         }
 
@@ -102,6 +100,7 @@ namespace ExcitingVirtualPetCore
             }
         }
 
+        //UNIQUE EXTRA FEATURES-----------------------------------------------------------------------------------------
         public void startBlur()
         {
             blurringEffect.BeginAnimation(BlurEffect.RadiusProperty, new DoubleAnimation(30, TimeSpan.FromSeconds(3)));
@@ -110,6 +109,7 @@ namespace ExcitingVirtualPetCore
         {
             blurringEffect.BeginAnimation(BlurEffect.RadiusProperty, new DoubleAnimation(0, TimeSpan.FromSeconds(3)));
         }
+
 
         private void UpdateView()
         {
@@ -166,8 +166,6 @@ namespace ExcitingVirtualPetCore
                 }
             }
         }
-
-
 
         private void Button_Save(object sender, RoutedEventArgs e)
         {
