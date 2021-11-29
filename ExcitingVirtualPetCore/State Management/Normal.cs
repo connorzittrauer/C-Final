@@ -15,7 +15,7 @@ namespace ExcitingVirtualPetCore
         public void Play()
         {
             //these conditionals are the thresholds   
-            if (pet.getBoredom() > pet.GET_MIN_BOREDOM())
+            if (pet.getBoredom() > 0)
             {
                 pet.decrementBoredom();
             }
@@ -24,7 +24,7 @@ namespace ExcitingVirtualPetCore
 
         public void TryToDrink()
         {
-            if (pet.getWater() > pet.GET_MIN_WATER())
+            if (pet.getWater() > 0)
             {
                 pet.State = new Drinking(this.pet);
             }
@@ -33,7 +33,7 @@ namespace ExcitingVirtualPetCore
 
         public void TryToEat()
         {
-            if (pet.getFood() > pet.GET_MIN_FOOD())
+            if (pet.getFood() >0)
             {
                 pet.State = new Eating(this.pet);
             }
@@ -42,7 +42,7 @@ namespace ExcitingVirtualPetCore
 
         public void TryToSleep()
         {
-            if (pet.GetSleepiness() < pet.GET_MAX_SLEEPINESS())
+            if (pet.GetSleepiness() < 10)
             {
                 pet.State = new Sleeping(this.pet);
             }

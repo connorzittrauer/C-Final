@@ -9,7 +9,6 @@ namespace ExcitingVirtualPetCore
     {
         Pet pet;
 
-
         public Drinking(Pet pet)
         {
             this.pet = pet;
@@ -20,11 +19,10 @@ namespace ExcitingVirtualPetCore
             pet.decrementWater();
             pet.decrementThirst();
 
-            if (pet.getThirst() == pet.GET_MIN_THIRST() || pet.getWater() == pet.GET_MIN_WATER())
+            if (pet.getThirst() == 0 || pet.getWater() == 0)
             {
                 pet.State = new Normal(this.pet);
             }
-
         }
 
         public void TryToEat()

@@ -12,41 +12,17 @@ namespace ExcitingVirtualPetCore
     public class Pet : IPet
 
     {
-        //Constants
-        protected int MAX_HUNGER;
-        protected int MIN_HUNGER;
-        protected int MAX_AFFECTION;
-        protected int MIN_AFFECTION;
-        protected int MAX_THIRST;
-        protected int MIN_THIRST;
-        protected int MAX_BOREDOM;
-        protected int MIN_BOREDOM;
-        protected int MAX_SLEEPINESS;
-
-
-        //Resource Constants
-        protected int MAX_FOOD;
-        protected int MIN_FOOD;
-        protected int MAX_WATER;
-        protected int MIN_WATER;
-
-
         protected int hunger;
         protected int affection;
         protected int thirst;
         protected int boredom;
         protected int currentFood;
         protected int currentWater;
-
         protected int startEating;
         protected int startDrinking;
-
         protected int sleepiness;
-
         protected bool type;
-
         protected BitmapImage hereImage, leavingImage;
-
         protected bool currentlySleeping;
 
 
@@ -106,47 +82,38 @@ namespace ExcitingVirtualPetCore
             get { return startDrinking; }
             set { startDrinking = value; }
         }
+        public bool CurrentlySleeping
+        {
+            get { return currentlySleeping; }
+            set { currentlySleeping = value; }
+        }
 
 
         public Pet()
         {
-            //these are universal to all inherited pets
-            MAX_HUNGER = 10;
-            MIN_HUNGER = 0;
-            MAX_AFFECTION = 10;
-            MIN_AFFECTION = 0;
-            MAX_THIRST = 10;
-            MIN_THIRST = 0;
-            MAX_BOREDOM = 10;
-            MIN_BOREDOM = 0;
-            MAX_FOOD = 10;
-            MIN_FOOD = 0;
-            MAX_WATER = 10;
-            MIN_WATER = 0;
-            MAX_SLEEPINESS = 10;
-
+            currentlySleeping = false;
         }
 
 
         public void IncreaseHunger() {
-            if (this.hunger < MAX_HUNGER) hunger++;
+            if (this.hunger < 10) hunger++;
 
         }
         public void IncreaseThirst() 
         {
-            if (this.thirst < MAX_THIRST) thirst++;
+            if (this.thirst < 10) thirst++;
 
         }
 
 
         public void IncreaseBoredom()
         {
-            if (this.boredom < MAX_BOREDOM) { boredom++; }
+            if (this.boredom < 10) { boredom++; }
             
         }
         public void DecreaseAffection()
         {
-            if (this.affection > MIN_AFFECTION) { affection--; }
+            if (this.affection > 0) { affection--; }
             
         }
 
@@ -175,7 +142,7 @@ namespace ExcitingVirtualPetCore
 
         public bool RanOff() 
         {
-            if (hunger == MAX_HUNGER && thirst == MAX_THIRST && boredom == MAX_BOREDOM && affection == MIN_AFFECTION)
+            if (hunger == 10 && thirst == 10 && boredom == 10 && affection == 0)
             {
                 //returns true so the mainLoopTimer has a trigger to halt
                 return true;
@@ -229,71 +196,6 @@ namespace ExcitingVirtualPetCore
             if (RanOff()) { return leavingImage; }
             else { return hereImage; }
         }
-
-        public int GET_MAX_HUNGER()
-        {
-            return MAX_HUNGER;
-        }
-
-        public int GET_MIN_HUNGER()
-        {
-            return MIN_HUNGER;
-        }
-
-        public int GET_MAX_AFFECTION()
-        {
-            return MAX_AFFECTION;
-        }
-
-        public int GET_MIN_AFFECTION()
-        {
-            return MIN_AFFECTION;
-        }
-
-        public int GET_MAX_SLEEPINESS()
-        {
-            return MAX_SLEEPINESS;
-        }
-        public int GET_MAX_THIRST()
-        {
-            return MAX_THIRST;
-        }
-
-        public int GET_MIN_THIRST()
-        {
-            return MIN_THIRST;
-        }
-
-        public int GET_MAX_BOREDOM()
-        {
-            return MAX_BOREDOM;
-        }
-
-        public int GET_MIN_BOREDOM()
-        {
-            return MIN_BOREDOM;
-        }
-
-        public int GET_MAX_FOOD()
-        {
-            return MAX_FOOD;
-        }
-
-        public int GET_MIN_FOOD()
-        {
-            return MIN_FOOD;
-        }
-
-        public int GET_MAX_WATER()
-        {
-            return MAX_WATER;
-        }
-
-        public int GET_MIN_WATER()
-        {
-            return MIN_WATER;
-        }
-
         public void incrementHunger()
         {
             hunger++;
@@ -317,7 +219,7 @@ namespace ExcitingVirtualPetCore
 
         public void feed()
         {
-            if (currentFood < MAX_FOOD)
+            if (currentFood < 10)
             {
                 currentFood++;
             }
@@ -326,12 +228,10 @@ namespace ExcitingVirtualPetCore
 
         public void water()
         {
-            if (currentWater < MAX_WATER)
+            if (currentWater < 10)
             {
                 currentWater++;
             }
-
-
         }
         
         public void decrementFood()
@@ -358,7 +258,7 @@ namespace ExcitingVirtualPetCore
 
         public void pat()
         {
-            if (affection < MAX_AFFECTION)
+            if (affection < 10)
             {
                 affection++;
             }
@@ -367,12 +267,12 @@ namespace ExcitingVirtualPetCore
 
         public bool IsAwake()
         {
-            return sleepiness < MAX_SLEEPINESS;
+            return sleepiness < 10;
         }
 
         public bool IsSleeping()
         {
-            return sleepiness >= MAX_SLEEPINESS;
+            return sleepiness >= 10;
         }
 
     }

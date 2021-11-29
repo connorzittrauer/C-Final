@@ -7,7 +7,6 @@ namespace ExcitingVirtualPetCore
 {
     class Bird : Pet
     {
-
         public Bird() : base()
         {
             hereImage = new BitmapImage(new Uri("Resources/bird.jpg", UriKind.Relative));

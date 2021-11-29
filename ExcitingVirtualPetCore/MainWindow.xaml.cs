@@ -77,8 +77,6 @@ namespace ExcitingVirtualPetCore
             PetImage.Source = CurrentPet.currentImageState();
         }
 
-
-
         private void petDisatisfied()
         {
             //if you've really not taken care of your cat...
@@ -87,6 +85,7 @@ namespace ExcitingVirtualPetCore
                 PetImage.Source = CurrentPet.currentImageState();
                 //stop main loop
                 timer.stopTimer();
+                MessageBox.Show("The pet ran away, choose another pet to play with for now.");
             }
             
         }
@@ -95,13 +94,21 @@ namespace ExcitingVirtualPetCore
         {
             if (CurrentPet.IsSleeping()) 
             {
-                //PetGroupBox.Effect = new BlurEffect() { Radius = 30 };
-                blurringEffect.BeginAnimation( BlurEffect.RadiusProperty, new DoubleAnimation(30, TimeSpan.FromSeconds(3)));
+                startBlur();
 
                 MessageBox.Show("Pet Is Asleep, return back later...");
                 timer.stopTimer();
 
             }
+        }
+
+        public void startBlur()
+        {
+            blurringEffect.BeginAnimation(BlurEffect.RadiusProperty, new DoubleAnimation(30, TimeSpan.FromSeconds(3)));
+        }
+        public void revertBlur()
+        {
+            blurringEffect.BeginAnimation(BlurEffect.RadiusProperty, new DoubleAnimation(0, TimeSpan.FromSeconds(3)));
         }
 
         private void UpdateView()
@@ -153,8 +160,9 @@ namespace ExcitingVirtualPetCore
 
                     CurrentPet = JsonSerializer.Deserialize<Pet>(reader.ReadString(), options);
                     PetImage.Source = CurrentPet.currentImageState();
+                    timer.startTimer();
+                    revertBlur();
 
-                    changedPets = true;
                 }
             }
         }

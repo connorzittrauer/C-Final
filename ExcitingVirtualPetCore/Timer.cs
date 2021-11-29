@@ -144,5 +144,10 @@ namespace ExcitingVirtualPetCore
         {
            mainLoopTimer.Stop();
         }
+
+        public void startTimer()
+        {
+            mainLoopTimer.Start();
+        }
     }
 }

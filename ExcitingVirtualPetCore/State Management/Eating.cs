@@ -25,12 +25,10 @@ namespace ExcitingVirtualPetCore
             pet.decrementFood();
             pet.decrementHunger();
 
-
-            if (pet.getHunger() == pet.GET_MIN_HUNGER() || pet.getFood() == pet.GET_MIN_FOOD())
+            if (pet.getHunger() == 0 || pet.getFood() == 0)
             {
                 pet.State = new Normal(this.pet);
             }
-
 
         }
 
