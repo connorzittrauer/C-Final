@@ -243,9 +243,6 @@ namespace ExcitingVirtualPetCore
         {
             hunger--;
         }
-
-
-        
         public void decrementWater()
         {
             currentWater--;
