@@ -25,6 +25,14 @@ namespace ExcitingVirtualPetCore
         protected BitmapImage hereImage, leavingImage;
         protected bool currentlySleeping;
 
+        //event handlers
+        public event EventHandler HungerChanged;
+        public event EventHandler ThirstChanged;
+        public event EventHandler BoredomChanged;
+        public event EventHandler AffectionChanged;
+        public event EventHandler WaterChanged;
+        public event EventHandler FoodChanged;
+        public event EventHandler SleepinessChanged;
 
 
         public IPetState state;
@@ -35,43 +43,77 @@ namespace ExcitingVirtualPetCore
             set { state = value; }
         }
 
+
         public int Sleepiness
         {
             get { return sleepiness; }
-            set { sleepiness = value; }
+            set
+            { 
+                sleepiness = value;
+                OnSleepinessChanged();            
+            }
         }
 
 
         public int CurrentFood
         {
             get { return currentFood; }
-            set { currentFood = value; }
+            set 
+            { 
+                currentFood = value;
+                OnFoodChanged();
+            }
         }
         public int CurrentWater
         {
             get { return currentWater; }
-            set { currentWater = value; }
+            set 
+            { 
+                currentWater = value;
+                OnWaterChanged();
+            }
         }
+
         public int Hunger
         {
             get { return hunger; }
-            set { hunger = value; }
-        }
+            set
+            {
+                hunger = value;
+                OnHungerChanged();
+
+            }
+        }  
+        
         public int Affection
         {
             get { return affection; }
-            set { affection = value; }
+            set 
+            { 
+                affection = value;
+                OnAffectionChanged();
+            }
         }
         public int Thirst
         {
             get { return thirst; }
-            set { thirst = value; }
+            set 
+            { 
+                thirst = value;
+                OnThirstChanged();
+            }
         }
         public int Boredom
         {
             get { return boredom; }
-            set { boredom = value; }
+            set 
+            {
+                boredom = value;
+                OnBoredomChanged();
+            }
         }
+
+
         public int StartEating
         {
             get { return startEating; }
@@ -88,18 +130,19 @@ namespace ExcitingVirtualPetCore
             set { currentlySleeping = value; }
         }
 
-
+        #region
         public Pet()
         {
             currentlySleeping = false;
         }
 
 
-        public void IncreaseHunger() {
+        public void IncreaseHunger()
+        {
             if (this.hunger < 10) hunger++;
 
         }
-        public void IncreaseThirst() 
+        public void IncreaseThirst()
         {
             if (this.thirst < 10) thirst++;
 
@@ -109,12 +152,12 @@ namespace ExcitingVirtualPetCore
         public void IncreaseBoredom()
         {
             if (this.boredom < 10) { boredom++; }
-            
+
         }
         public void DecreaseAffection()
         {
             if (this.affection > 0) { affection--; }
-            
+
         }
 
         public void TryToDrink()
@@ -140,7 +183,7 @@ namespace ExcitingVirtualPetCore
             state.Play();
         }
 
-        public bool RanOff() 
+        public bool RanOff()
         {
             if (hunger == 10 && thirst == 10 && boredom == 10 && affection == 0)
             {
@@ -152,8 +195,11 @@ namespace ExcitingVirtualPetCore
 
 
 
-        //accessors
-        public int getHunger() 
+
+
+     
+ 
+        public int getHunger()
         {
             return hunger;
         }
@@ -233,7 +279,7 @@ namespace ExcitingVirtualPetCore
                 currentWater++;
             }
         }
-        
+
         public void decrementFood()
         {
             currentFood--;
@@ -271,6 +317,63 @@ namespace ExcitingVirtualPetCore
         {
             return sleepiness >= 10;
         }
+        #endregion
 
+
+        //event methods
+        public void OnHungerChanged()
+        {
+            if (HungerChanged != null)
+            {
+                HungerChanged(this, null);
+            }
+        }
+        public void OnThirstChanged()
+        {
+            if (ThirstChanged != null)
+            {
+                ThirstChanged(this, null);
+            }
+        }
+
+        public void OnBoredomChanged()
+        {
+            if (BoredomChanged != null)
+            {
+                BoredomChanged(this, null);
+            }
+        }
+        public void OnAffectionChanged()
+        {
+            if (AffectionChanged != null)
+            {
+                AffectionChanged(this, null);
+            }
+        }
+        public void OnWaterChanged()
+        {
+            if (WaterChanged != null) 
+            {
+                WaterChanged(this, null);
+            }
+        }
+
+        public void OnFoodChanged()
+        {
+            if (FoodChanged != null)
+            {
+                FoodChanged(this, null);
+            }
+        }
+
+        public void OnSleepinessChanged()
+        {
+            if (SleepinessChanged != null)
+            {
+                SleepinessChanged(this, null);
+            }
+        }
     }
+
+
 }

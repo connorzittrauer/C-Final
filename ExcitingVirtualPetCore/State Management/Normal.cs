@@ -24,7 +24,7 @@ namespace ExcitingVirtualPetCore
 
         public void TryToDrink()
         {
-            if (pet.getWater() > 0)
+            if (pet.getThirst() > 3)
             {
                 pet.State = new Drinking(this.pet);
             }
@@ -33,7 +33,7 @@ namespace ExcitingVirtualPetCore
 
         public void TryToEat()
         {
-            if (pet.getFood() >0)
+            if (pet.getHunger() > 4)
             {
                 pet.State = new Eating(this.pet);
             }

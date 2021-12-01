@@ -30,6 +30,7 @@ namespace ExcitingVirtualPetCore
         OpenFileDialog openDialog;
         Timer timer = new Timer();
         ISimpleFactory factory;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -41,6 +42,9 @@ namespace ExcitingVirtualPetCore
 
             saveDialog = new SaveFileDialog();
             openDialog = new OpenFileDialog();
+
+
+
 
 
             saveDialog.Filter = "pet files |*.pet";
@@ -61,7 +65,16 @@ namespace ExcitingVirtualPetCore
             petDisatisfied();
 
             //update view
-            UpdateView();
+            //UpdateView();
+
+            CurrentPet.HungerChanged += UpdateView;
+            CurrentPet.ThirstChanged += UpdateView;
+            CurrentPet.BoredomChanged += UpdateView;
+            CurrentPet.AffectionChanged += UpdateView;
+            CurrentPet.WaterChanged += UpdateView;
+            CurrentPet.FoodChanged += UpdateView;
+            CurrentPet.SleepinessChanged += UpdateView;
+
 
             checkSleep();
         }
@@ -73,6 +86,8 @@ namespace ExcitingVirtualPetCore
 
             CurrentPet = factory.CreateAnimal(3);
             PetImage.Source = CurrentPet.currentImageState();
+
+
         }
 
         private void petDisatisfied()
@@ -110,16 +125,26 @@ namespace ExcitingVirtualPetCore
             blurringEffect.BeginAnimation(BlurEffect.RadiusProperty, new DoubleAnimation(0, TimeSpan.FromSeconds(3)));
         }
 
-
-        private void UpdateView()
+        //
+        private void UpdateView(object sender, EventArgs e)
         {
-            HungerMeter.Value = CurrentPet.getHunger();
-            ThirstMeter.Value = CurrentPet.getThirst();
-            BoredomMeter.Value = CurrentPet.getBoredom();
-            AffectionMeter.Value = CurrentPet.getAffection();
-            WaterAmountBar.Value = CurrentPet.getWater();
-            FoodAmountBar.Value = CurrentPet.getFood();
-            SleepinessMeter.Value = CurrentPet.GetSleepiness();
+            Debug.WriteLine("HUNGER: " + CurrentPet.Hunger);
+
+            HungerMeter.Value = CurrentPet.Hunger;
+            ThirstMeter.Value = CurrentPet.Thirst;
+            BoredomMeter.Value = CurrentPet.Boredom;
+            AffectionMeter.Value = CurrentPet.Affection;
+            WaterAmountBar.Value = CurrentPet.CurrentWater;
+            FoodAmountBar.Value = CurrentPet.CurrentFood;
+            SleepinessMeter.Value = CurrentPet.Sleepiness;
+
+            //HungerMeter.Value = CurrentPet.getHunger();
+            //ThirstMeter.Value = CurrentPet.getThirst();
+            //BoredomMeter.Value = CurrentPet.getBoredom();
+            //AffectionMeter.Value = CurrentPet.getAffection();
+            //WaterAmountBar.Value = CurrentPet.getWater();
+            //FoodAmountBar.Value = CurrentPet.getFood();
+            //SleepinessMeter.Value = CurrentPet.GetSleepiness();
         }
 
         private void PetFeedButton_Click(object sender, RoutedEventArgs e)

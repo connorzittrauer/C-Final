@@ -7,6 +7,15 @@ namespace ExcitingVirtualPetCore
 {
     public interface IPet
     {
+
+        public event EventHandler HungerChanged;
+        public event EventHandler ThirstChanged;
+        public event EventHandler BoredomChanged;
+        public event EventHandler AffectionChanged;
+        public event EventHandler WaterChanged;
+        public event EventHandler FoodChanged;
+        public event EventHandler SleepinessChanged;
+        #region
         //actions
         void IncreaseHunger();
 
@@ -22,7 +31,8 @@ namespace ExcitingVirtualPetCore
         void water();
         void Play();
         void pat();
-
+        
+ 
         void incrementHunger();
         void decrementFood();
         void decrementHunger();
@@ -39,8 +49,52 @@ namespace ExcitingVirtualPetCore
 
         bool IsAwake();
         bool IsSleeping();
+        #endregion
 
+        void OnHungerChanged();
+        void OnThirstChanged();
+        void OnBoredomChanged();
+        void OnAffectionChanged();
+        void OnWaterChanged();
+        void OnFoodChanged();
+        void OnSleepinessChanged();
 
+        int Sleepiness
+        {
+            get;
+            set;
+        }
+        int CurrentFood
+        {
+            get;
+            set;
+        }
+        int CurrentWater
+        {
+            get;
+            set;
+        }
+        int Hunger
+        {
+            get;
+            set;
+        }
+
+        int Affection
+        {
+            get;
+            set;
+        }
+        int Thirst
+        {
+            get;
+            set;
+        }
+        int Boredom
+        {
+            get;
+            set;
+        }
         BitmapImage currentImageState();
 
     }
