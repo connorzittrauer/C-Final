@@ -193,64 +193,12 @@ namespace ExcitingVirtualPetCore
             else { return false; }
         }
 
- 
-        public int getHunger()
-        {
-            return hunger;
-        }
-        public int getAffection()
-        {
-            return affection;
-        }
-        public int getThirst()
-        {
-            return thirst;
-        }
-        public int getBoredom()
-        {
-            return boredom;
-        }
-        public int getFood()
-        {
-            return currentFood;
-        }
-        public int getWater()
-        {
-            return currentWater;
-        }
-
-        public int GetSleepiness()
-        {
-            return sleepiness;
-        }
-        public int getStartEating()
-        {
-            return startEating;
-        }
-        public int getStartDrinking()
-        {
-            return startDrinking;
-        }
-
         public BitmapImage currentImageState()
         {
             if (RanOff()) { return leavingImage; }
             else { return hereImage; }
         }
-        public void incrementHunger()
-        {
-            Hunger++;
-        }
 
-        public void decrementBoredom()
-        {
-            Boredom--;
-        }
-
-        public void incrementSleepiness()
-        {
-            Sleepiness++;
-        }
 
         public void setSleepState(bool value)
         {
@@ -275,24 +223,11 @@ namespace ExcitingVirtualPetCore
             }
         }
 
-        public void decrementFood()
-        {
-            CurrentFood--;
-        }
 
-        public void decrementHunger()
-        {
-            Hunger--;
-        }
-        public void decrementWater()
-        {
-            CurrentWater--;
-        }
 
-        public void decrementThirst()
-        {
-            Thirst--;
-        }
+
+
+
 
         public void pat()
         {

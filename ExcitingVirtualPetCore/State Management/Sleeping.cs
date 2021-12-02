@@ -30,7 +30,7 @@ namespace ExcitingVirtualPetCore
 
         public void TryToSleep()
         {
-            pet.incrementSleepiness();
+            pet.Sleepiness++;
             pet.State = new Normal(this.pet);
 
             if (pet.Sleepiness == 10)

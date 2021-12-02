@@ -1,20 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Threading;
 using System.Windows;
 using System.IO;
 using System.Text.Json;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Diagnostics;
 using System.Windows.Media.Effects;
 using Microsoft.Win32;
@@ -70,22 +57,13 @@ namespace ExcitingVirtualPetCore
             //check game loss condition
             petDisatisfied();
 
-            //update view
-            //UpdateView();
-
-
             checkSleep();
         }
-
-        //Set up main data
         private void InitializePet()
         {
             factory = new Factory();
-
             CurrentPet = factory.CreateAnimal(3);
             PetImage.Source = CurrentPet.currentImageState();
-
-
         }
 
         private void petDisatisfied()
@@ -132,8 +110,9 @@ namespace ExcitingVirtualPetCore
             AffectionMeter.Value = CurrentPet.Affection;
             WaterAmountBar.Value = CurrentPet.CurrentWater;
             FoodAmountBar.Value = CurrentPet.CurrentFood;
-            Debug.WriteLine(CurrentPet.CurrentFood);
             SleepinessMeter.Value = CurrentPet.Sleepiness;
+
+            Debug.WriteLine("CURRENT FOOD: " + CurrentPet.CurrentFood);
         }
 
         private void PetFeedButton_Click(object sender, RoutedEventArgs e)

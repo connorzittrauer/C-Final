@@ -21,10 +21,6 @@ namespace ExcitingVirtualPetCore
 
         public void TryToEat()
         {
-
-            //pet.decrementFood();
-            //pet.decrementHunger();
-
             pet.CurrentFood--;
             pet.Hunger--;
 

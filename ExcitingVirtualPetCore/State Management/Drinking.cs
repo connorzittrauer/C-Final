@@ -16,9 +16,6 @@ namespace ExcitingVirtualPetCore
 
         public void TryToDrink()
         {
-            //pet.decrementWater();
-            //pet.decrementThirst();
-
             pet.CurrentWater--;
             pet.Thirst--;
 

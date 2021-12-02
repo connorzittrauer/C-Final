@@ -32,19 +32,11 @@ namespace ExcitingVirtualPetCore
         void Play();
         void pat();
         
- 
-        void incrementHunger();
-        void decrementFood();
-        void decrementHunger();
-        int getHunger();
-        int getAffection();
-        int getThirst();
-        int getBoredom();
-        int getFood();
-        int GetSleepiness();
-        int getWater();
-        int getStartEating();
-        int getStartDrinking();
+
+
+
+
+
 
 
         bool IsAwake();
