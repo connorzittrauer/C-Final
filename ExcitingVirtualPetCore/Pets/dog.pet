@@ -1,12 +1,12 @@
-˜{
+™{
   "TypeDiscriminator": 2,
   "TypeValue": {
-    "Sleepiness": 2,
-    "CurrentFood": 9,
-    "CurrentWater": 9,
-    "Hunger": 0,
+    "Sleepiness": 5,
+    "CurrentFood": 0,
+    "CurrentWater": 0,
+    "Hunger": 6,
     "Affection": 0,
-    "Thirst": 9,
+    "Thirst": 10,
     "Boredom": 10,
     "StartEating": 6,
     "StartDrinking": 6,

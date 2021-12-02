@@ -1,15 +1,15 @@
-™{
+—{
   "TypeDiscriminator": 1,
   "TypeValue": {
-    "Sleepiness": 10,
-    "CurrentFood": 10,
-    "CurrentWater": 10,
-    "Hunger": 5,
+    "Sleepiness": 9,
+    "CurrentFood": 2,
+    "CurrentWater": 5,
+    "Hunger": 4,
     "Affection": 0,
-    "Thirst": 4,
-    "Boredom": 6,
+    "Thirst": 7,
+    "Boredom": 5,
     "StartEating": 6,
     "StartDrinking": 6,
-    "CurrentlySleeping": true
+    "CurrentlySleeping": false
   }
 }
