@@ -12,10 +12,10 @@ namespace ExcitingVirtualPetCore
             hereImage = new BitmapImage(new Uri("Resources/dog.jpg", UriKind.Relative));
             leavingImage = new BitmapImage(new Uri("Resources/dog_leaving.png", UriKind.Relative));
 
-            CurrentFood = 5;
-            CurrentWater = 1;
-            Hunger = 5;
-            Affection = 0;
+            CurrentFood = 1;
+            CurrentWater = 5;
+            Hunger = 7;
+            Affection = 3;
             Thirst = 7;
             Boredom = 8;
             StartEating = 6;

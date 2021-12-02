@@ -26,7 +26,9 @@ namespace ExcitingVirtualPetCore
 
             timer.InitializeFrames();
             timer.initialize(MainLoopTimer_Tick);
-                    
+            
+
+
             saveDialog = new SaveFileDialog();
             openDialog = new OpenFileDialog();
 
@@ -62,7 +64,7 @@ namespace ExcitingVirtualPetCore
         private void InitializePet()
         {
             factory = new Factory();
-            CurrentPet = factory.CreateAnimal(3);
+            CurrentPet = factory.CreateAnimal(2);
             PetImage.Source = CurrentPet.currentImageState();
         }
 
