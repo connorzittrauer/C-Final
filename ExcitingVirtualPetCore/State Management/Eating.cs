@@ -22,10 +22,13 @@ namespace ExcitingVirtualPetCore
         public void TryToEat()
         {
 
-            pet.decrementFood();
-            pet.decrementHunger();
+            //pet.decrementFood();
+            //pet.decrementHunger();
 
-            if (pet.getHunger() == 0 || pet.getFood() == 0)
+            pet.CurrentFood--;
+            pet.Hunger--;
+
+            if (pet.Hunger == 0 || pet.CurrentFood == 0)
             {
                 pet.State = new Normal(this.pet);
             }

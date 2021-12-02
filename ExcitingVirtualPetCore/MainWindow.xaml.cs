@@ -34,23 +34,29 @@ namespace ExcitingVirtualPetCore
         public MainWindow()
         {
             InitializeComponent();
-
-            //set up initial stuff
             InitializePet();
+            SetEventHandlers();
+
             timer.InitializeFrames();
             timer.initialize(MainLoopTimer_Tick);
-
+                    
             saveDialog = new SaveFileDialog();
             openDialog = new OpenFileDialog();
-
-
-
-
 
             saveDialog.Filter = "pet files |*.pet";
             openDialog.Filter = "pet files |*.pet";
             saveDialog.DefaultExt = "pet files |*.pet";
             openDialog.DefaultExt = "pet files |*.pet";
+        }
+        private void SetEventHandlers()
+        {
+            CurrentPet.HungerChanged += UpdateView;
+            CurrentPet.ThirstChanged += UpdateView;
+            CurrentPet.BoredomChanged += UpdateView;
+            CurrentPet.AffectionChanged += UpdateView;
+            CurrentPet.WaterChanged += UpdateView;
+            CurrentPet.FoodChanged += UpdateView;
+            CurrentPet.SleepinessChanged += UpdateView;
         }
 
         private void MainLoopTimer_Tick(object sender, EventArgs e)
@@ -66,14 +72,6 @@ namespace ExcitingVirtualPetCore
 
             //update view
             //UpdateView();
-
-            CurrentPet.HungerChanged += UpdateView;
-            CurrentPet.ThirstChanged += UpdateView;
-            CurrentPet.BoredomChanged += UpdateView;
-            CurrentPet.AffectionChanged += UpdateView;
-            CurrentPet.WaterChanged += UpdateView;
-            CurrentPet.FoodChanged += UpdateView;
-            CurrentPet.SleepinessChanged += UpdateView;
 
 
             checkSleep();
@@ -128,23 +126,14 @@ namespace ExcitingVirtualPetCore
         //
         private void UpdateView(object sender, EventArgs e)
         {
-            Debug.WriteLine("HUNGER: " + CurrentPet.Hunger);
-
             HungerMeter.Value = CurrentPet.Hunger;
             ThirstMeter.Value = CurrentPet.Thirst;
             BoredomMeter.Value = CurrentPet.Boredom;
             AffectionMeter.Value = CurrentPet.Affection;
             WaterAmountBar.Value = CurrentPet.CurrentWater;
             FoodAmountBar.Value = CurrentPet.CurrentFood;
+            Debug.WriteLine(CurrentPet.CurrentFood);
             SleepinessMeter.Value = CurrentPet.Sleepiness;
-
-            //HungerMeter.Value = CurrentPet.getHunger();
-            //ThirstMeter.Value = CurrentPet.getThirst();
-            //BoredomMeter.Value = CurrentPet.getBoredom();
-            //AffectionMeter.Value = CurrentPet.getAffection();
-            //WaterAmountBar.Value = CurrentPet.getWater();
-            //FoodAmountBar.Value = CurrentPet.getFood();
-            //SleepinessMeter.Value = CurrentPet.GetSleepiness();
         }
 
         private void PetFeedButton_Click(object sender, RoutedEventArgs e)
@@ -184,6 +173,10 @@ namespace ExcitingVirtualPetCore
                     };
 
                     CurrentPet = JsonSerializer.Deserialize<Pet>(reader.ReadString(), options);
+
+                    //You need to make sure you set the eventhandlers whenever you make a change to what object is currentPet. 
+                    SetEventHandlers();
+
                     PetImage.Source = CurrentPet.currentImageState();
                     timer.startTimer();
                     revertBlur();

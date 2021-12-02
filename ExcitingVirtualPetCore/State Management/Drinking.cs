@@ -16,10 +16,13 @@ namespace ExcitingVirtualPetCore
 
         public void TryToDrink()
         {
-            pet.decrementWater();
-            pet.decrementThirst();
+            //pet.decrementWater();
+            //pet.decrementThirst();
 
-            if (pet.getThirst() == 0 || pet.getWater() == 0)
+            pet.CurrentWater--;
+            pet.Thirst--;
+
+            if (pet.Thirst == 0 || pet.CurrentWater == 0)
             {
                 pet.State = new Normal(this.pet);
             }

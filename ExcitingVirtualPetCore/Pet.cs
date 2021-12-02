@@ -139,24 +139,24 @@ namespace ExcitingVirtualPetCore
 
         public void IncreaseHunger()
         {
-            if (this.hunger < 10) hunger++;
+            if (this.Hunger < 10) Hunger++;
 
         }
         public void IncreaseThirst()
         {
-            if (this.thirst < 10) thirst++;
+            if (this.Thirst < 10) Thirst++;
 
         }
 
 
         public void IncreaseBoredom()
         {
-            if (this.boredom < 10) { boredom++; }
+            if (this.Boredom < 10) { Boredom++; }
 
         }
         public void DecreaseAffection()
         {
-            if (this.affection > 0) { affection--; }
+            if (this.Affection > 0) { Affection--; }
 
         }
 
@@ -185,7 +185,7 @@ namespace ExcitingVirtualPetCore
 
         public bool RanOff()
         {
-            if (hunger == 10 && thirst == 10 && boredom == 10 && affection == 0)
+            if (Hunger == 10 && Thirst == 10 && Boredom == 10 && Affection == 0)
             {
                 //returns true so the mainLoopTimer has a trigger to halt
                 return true;
@@ -193,11 +193,6 @@ namespace ExcitingVirtualPetCore
             else { return false; }
         }
 
-
-
-
-
-     
  
         public int getHunger()
         {
@@ -244,78 +239,78 @@ namespace ExcitingVirtualPetCore
         }
         public void incrementHunger()
         {
-            hunger++;
+            Hunger++;
         }
 
         public void decrementBoredom()
         {
-            boredom--;
+            Boredom--;
         }
 
         public void incrementSleepiness()
         {
-            sleepiness++;
+            Sleepiness++;
         }
 
         public void setSleepState(bool value)
         {
-            currentlySleeping = value;
+            CurrentlySleeping = value;
         }
 
 
         public void feed()
         {
-            if (currentFood < 10)
+            if (CurrentFood < 10)
             {
-                currentFood++;
+                CurrentFood++;
             }
 
         }
 
         public void water()
         {
-            if (currentWater < 10)
+            if (CurrentWater < 10)
             {
-                currentWater++;
+                CurrentWater++;
             }
         }
 
         public void decrementFood()
         {
-            currentFood--;
+            CurrentFood--;
         }
 
         public void decrementHunger()
         {
-            hunger--;
+            Hunger--;
         }
         public void decrementWater()
         {
-            currentWater--;
+            CurrentWater--;
         }
 
         public void decrementThirst()
         {
-            thirst--;
+            Thirst--;
         }
 
         public void pat()
         {
-            if (affection < 10)
+            if (Affection < 10)
             {
-                affection++;
+                Affection++;
             }
 
         }
 
         public bool IsAwake()
         {
-            return sleepiness < 10;
+            return Sleepiness < 10;
         }
 
         public bool IsSleeping()
         {
-            return sleepiness >= 10;
+            return Sleepiness >= 10;
         }
         #endregion
 

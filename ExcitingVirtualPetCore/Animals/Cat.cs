@@ -12,16 +12,15 @@ namespace ExcitingVirtualPetCore
             hereImage = new BitmapImage(new Uri("Resources/basic_cat.jpg", UriKind.Relative));
             leavingImage = new BitmapImage(new Uri("Resources/cat_leaving.jpg", UriKind.Relative));
 
-            currentFood = 1;
-            currentWater = 1;
-            hunger = 5;
-            affection = 0;
-            thirst = 7;
-            boredom = 5;
-            startEating = 6;
-            startDrinking = 6;
-
-            sleepiness = 9;
+            CurrentFood = 3;
+            CurrentWater = 5;
+            Hunger = 5;
+            Affection = 0;
+            Thirst = 7;
+            Boredom = 5;
+            StartEating = 6;
+            StartDrinking = 6;
+            Sleepiness = 9;
             this.State = new Normal(this);
         }
 

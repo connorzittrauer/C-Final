@@ -6,7 +6,7 @@ using System.Text;
 namespace ExcitingVirtualPetCore
 {
     class Sleeping : IPetState
-    { 
+    {
         Pet pet;
 
         public Sleeping(Pet pet)
@@ -15,17 +15,17 @@ namespace ExcitingVirtualPetCore
         }
         public void Play()
         {
-           
+
         }
 
         public void TryToDrink()
         {
-           
+
         }
 
         public void TryToEat()
         {
-            
+
         }
 
         public void TryToSleep()
@@ -33,7 +33,7 @@ namespace ExcitingVirtualPetCore
             pet.incrementSleepiness();
             pet.State = new Normal(this.pet);
 
-            if (pet.GetSleepiness() == 10)
+            if (pet.Sleepiness == 10)
             {
                 pet.setSleepState(true);
             }
