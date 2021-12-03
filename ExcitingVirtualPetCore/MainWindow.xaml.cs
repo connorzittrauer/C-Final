@@ -62,9 +62,6 @@ namespace ExcitingVirtualPetCore
             petDisatisfied();
 
             checkSleep();
-
-            Debug.WriteLine("THIRST: " + CurrentPet.Thirst);
-            Debug.WriteLine("HUNGER: " + CurrentPet.Hunger);
         }
         private void InitializePet()
         {
@@ -201,7 +198,7 @@ namespace ExcitingVirtualPetCore
                     var jsonPet = JsonSerializer.Serialize(CurrentPet, CurrentPet.GetType(), options);
                     writer.Write(jsonPet);
                     Debug.WriteLine(jsonPet);
-
+                    timer.stopTimer();
 
                 }
             }

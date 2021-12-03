@@ -118,7 +118,9 @@ namespace ExcitingVirtualPetCore
             //cat eats and drinks 1 unit per second
             eatFrame = 60;
             drinkFrame = 60;
-            
+
+
+
             //higher value
             sleepFrame = 340;
 
