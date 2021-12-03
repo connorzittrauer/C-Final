@@ -26,7 +26,7 @@ namespace ExcitingVirtualPetCore
 
             timer.InitializeFrames();
             timer.initialize(MainLoopTimer_Tick);
-            
+
 
 
             saveDialog = new SaveFileDialog();
@@ -63,8 +63,10 @@ namespace ExcitingVirtualPetCore
         }
         private void InitializePet()
         {
+
             factory = new Factory();
             CurrentPet = factory.CreateAnimal(2);
+
             PetImage.Source = CurrentPet.currentImageState();
         }
 
@@ -113,8 +115,6 @@ namespace ExcitingVirtualPetCore
             WaterAmountBar.Value = CurrentPet.CurrentWater;
             FoodAmountBar.Value = CurrentPet.CurrentFood;
             SleepinessMeter.Value = CurrentPet.Sleepiness;
-
-            Debug.WriteLine("CURRENT FOOD: " + CurrentPet.CurrentFood);
         }
 
         private void PetFeedButton_Click(object sender, RoutedEventArgs e)

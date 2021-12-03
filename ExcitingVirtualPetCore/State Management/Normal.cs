@@ -15,7 +15,7 @@ namespace ExcitingVirtualPetCore
         public void Play()
         {
             //these conditionals are the thresholds   
-            if (pet.Boredom > 7)
+            if (pet.Boredom > 0)
             {
                 pet.Boredom--;
             }

@@ -34,7 +34,8 @@ namespace ExcitingVirtualPetCore
         public event EventHandler FoodChanged;
         public event EventHandler SleepinessChanged;
 
-
+        //properties
+        #region
         public IPetState state;
 
         public IPetState State
@@ -129,6 +130,7 @@ namespace ExcitingVirtualPetCore
             get { return currentlySleeping; }
             set { currentlySleeping = value; }
         }
+        #endregion
 
         #region
         public Pet()
@@ -222,12 +224,6 @@ namespace ExcitingVirtualPetCore
                 CurrentWater++;
             }
         }
-
-
-
-
-
-
 
         public void pat()
         {
