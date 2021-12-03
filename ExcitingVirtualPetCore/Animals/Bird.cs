@@ -14,13 +14,13 @@ namespace ExcitingVirtualPetCore
 
             CurrentFood = 4;
             CurrentWater = 5;
-            Hunger = 7;
-            Affection = 0;
+            Hunger = 3;
+            Affection = 4;
             Thirst = 6;
             Boredom = 8;
             StartEating = 6;
             StartDrinking = 6;
-            Sleepiness = 2;
+            Sleepiness = 0;
             this.State = new Normal(this);
         }
     }

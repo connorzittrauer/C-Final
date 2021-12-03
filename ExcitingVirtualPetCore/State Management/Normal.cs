@@ -22,9 +22,10 @@ namespace ExcitingVirtualPetCore
 
         }
 
+        //added pet.Thirst > 0 check to prevent resource bug
         public void TryToDrink()
         {
-            if (pet.CurrentWater > 0)
+            if (pet.CurrentWater > 0 && pet.Thirst > 0)
             {
                 pet.State = new Drinking(this.pet);
             }
@@ -33,7 +34,7 @@ namespace ExcitingVirtualPetCore
 
         public void TryToEat()
         {
-            if (pet.CurrentFood > 0)
+            if (pet.CurrentFood > 0 && pet.Hunger > 0)
             {
                 pet.State = new Eating(this.pet);
             }

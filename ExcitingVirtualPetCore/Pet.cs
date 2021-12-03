@@ -39,7 +39,6 @@ namespace ExcitingVirtualPetCore
         public IPetState state;
 
         public IPetState State
-
         {
             set { state = value; }
         }

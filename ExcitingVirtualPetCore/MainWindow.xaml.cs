@@ -17,7 +17,7 @@ namespace ExcitingVirtualPetCore
         OpenFileDialog openDialog;
         Timer timer = new Timer();
         ISimpleFactory factory;
-
+        Random rand = new Random();
         public MainWindow()
         {
             InitializeComponent();
@@ -62,12 +62,15 @@ namespace ExcitingVirtualPetCore
             petDisatisfied();
 
             checkSleep();
+
+            Debug.WriteLine("THIRST: " + CurrentPet.Thirst);
+            Debug.WriteLine("HUNGER: " + CurrentPet.Hunger);
         }
         private void InitializePet()
         {
 
             factory = new Factory();
-            CurrentPet = factory.CreateAnimal(2);
+            CurrentPet = factory.CreateAnimal(rand.Next(1, 4));
 
             PetImage.Source = CurrentPet.currentImageState();
         }
@@ -198,6 +201,8 @@ namespace ExcitingVirtualPetCore
                     var jsonPet = JsonSerializer.Serialize(CurrentPet, CurrentPet.GetType(), options);
                     writer.Write(jsonPet);
                     Debug.WriteLine(jsonPet);
+
+
                 }
             }
         }
