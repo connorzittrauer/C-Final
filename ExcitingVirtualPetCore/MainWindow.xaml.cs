@@ -23,7 +23,7 @@ namespace ExcitingVirtualPetCore
             InitializeComponent();
             InitializePet();
 
-            SetInitialView();
+            RefreshUI();
             SetEventHandlers();
             timer.InitializeFrames();
             timer.initialize(MainLoopTimer_Tick);
@@ -119,9 +119,10 @@ namespace ExcitingVirtualPetCore
             SleepinessMeter.Value = CurrentPet.Sleepiness;
         }
 
-        /*although this is sort of redundant, I think it's useful to include here because the UI is delayed to to the events only being triggered on changed, without this
-        there's about a 3-4 second delay when you load the program, so this is invoked only once when the project starts to prevent that */
-        private void SetInitialView()
+        /*although this is sort of redundant due to the events handling this, 
+        I think it's useful to include here because the UI is delayed to to the events only being triggered on changed, without this
+        there's about a 3-4 second delay when you load the program/load a new pet, so this refresh is called to counter that */
+        private void RefreshUI()
         {
             HungerMeter.Value = CurrentPet.Hunger;
             ThirstMeter.Value = CurrentPet.Thirst;
@@ -170,9 +171,10 @@ namespace ExcitingVirtualPetCore
                     CurrentPet = JsonSerializer.Deserialize<Pet>(reader.ReadString(), options);
 
                     //You need to make sure you set the eventhandlers whenever you make a change to what object is currentPet. 
+     
                     SetEventHandlers();
-
                     PetImage.Source = CurrentPet.currentImageState();
+                    RefreshUI();
                     timer.startTimer();
                     revertBlur();
 
@@ -182,6 +184,7 @@ namespace ExcitingVirtualPetCore
 
         private void Button_Save(object sender, RoutedEventArgs e)
         {
+            timer.stopTimer();
             if (saveDialog.ShowDialog() == true)
             {
                 using (Stream output = File.Create(saveDialog.FileName))
@@ -198,7 +201,7 @@ namespace ExcitingVirtualPetCore
                     var jsonPet = JsonSerializer.Serialize(CurrentPet, CurrentPet.GetType(), options);
                     writer.Write(jsonPet);
                     Debug.WriteLine(jsonPet);
-                    timer.stopTimer();
+                    //timer.stopTimer();
 
                 }
             }
