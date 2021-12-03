@@ -136,6 +136,7 @@ namespace ExcitingVirtualPetCore
         public Pet()
         {
             currentlySleeping = false;
+
         }
 
 

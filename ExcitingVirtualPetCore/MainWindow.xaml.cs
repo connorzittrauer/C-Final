@@ -22,8 +22,9 @@ namespace ExcitingVirtualPetCore
         {
             InitializeComponent();
             InitializePet();
-            SetEventHandlers();
 
+            SetInitialView();
+            SetEventHandlers();
             timer.InitializeFrames();
             timer.initialize(MainLoopTimer_Tick);
 
@@ -47,6 +48,7 @@ namespace ExcitingVirtualPetCore
             CurrentPet.FoodChanged += UpdateView;
             CurrentPet.SleepinessChanged += UpdateView;
         }
+
 
         private void MainLoopTimer_Tick(object sender, EventArgs e)
         {
@@ -96,16 +98,16 @@ namespace ExcitingVirtualPetCore
         }
 
         //UNIQUE EXTRA FEATURES-----------------------------------------------------------------------------------------
-        public void startBlur()
+        private void startBlur()
         {
             blurringEffect.BeginAnimation(BlurEffect.RadiusProperty, new DoubleAnimation(30, TimeSpan.FromSeconds(3)));
         }
-        public void revertBlur()
+        private void revertBlur()
         {
             blurringEffect.BeginAnimation(BlurEffect.RadiusProperty, new DoubleAnimation(0, TimeSpan.FromSeconds(3)));
         }
 
-        //
+        
         private void UpdateView(object sender, EventArgs e)
         {
             HungerMeter.Value = CurrentPet.Hunger;
@@ -117,6 +119,18 @@ namespace ExcitingVirtualPetCore
             SleepinessMeter.Value = CurrentPet.Sleepiness;
         }
 
+        /*although this is sort of redundant, I think it's useful to include here because the UI is delayed to to the events only being triggered on changed, without this
+        there's about a 3-4 second delay when you load the program, so this is invoked only once when the project starts to prevent that */
+        private void SetInitialView()
+        {
+            HungerMeter.Value = CurrentPet.Hunger;
+            ThirstMeter.Value = CurrentPet.Thirst;
+            BoredomMeter.Value = CurrentPet.Boredom;
+            AffectionMeter.Value = CurrentPet.Affection;
+            WaterAmountBar.Value = CurrentPet.CurrentWater;
+            FoodAmountBar.Value = CurrentPet.CurrentFood;
+            SleepinessMeter.Value = CurrentPet.Sleepiness;
+        }
         private void PetFeedButton_Click(object sender, RoutedEventArgs e)
         {
             CurrentPet.feed();
