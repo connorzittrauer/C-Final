@@ -8,22 +8,22 @@ namespace ExcitingVirtualPetCore
 {
     class Timer
     {
-        DispatcherTimer mainLoopTimer;
-        int hungerFrame;
-        int thirstFrame;
-        int boredomFrame;
-        int affectionFrame;
-        int eatFrame;
-        int drinkFrame;
-        int hungerCounter;
-        int thirstCounter;
-        int boredomCounter;
-        int affectionCounter;
-        int eatCounter;
-        int drinkCounter;
+        private DispatcherTimer mainLoopTimer;
+        private int hungerFrame;
+        private int thirstFrame;
+        private int boredomFrame;
+        private int affectionFrame;
+        private int eatFrame;
+        private int drinkFrame;
+        private int hungerCounter;
+        private int thirstCounter;
+        private int boredomCounter;
+        private int affectionCounter;
+        private int eatCounter;
+        private int drinkCounter;
 
-        int sleepCounter;
-        int sleepFrame;
+        private int sleepCounter;
+        private int sleepFrame;
 
         Random generator; 
 

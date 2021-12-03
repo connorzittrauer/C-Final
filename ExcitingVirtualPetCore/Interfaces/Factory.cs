@@ -6,8 +6,8 @@ namespace ExcitingVirtualPetCore
 {
     class Factory : ISimpleFactory
     {
-        List<IPet> PetFactory = new List<IPet>();
-        IPet pet = null;
+        private List<IPet> PetFactory = new List<IPet>();
+        private IPet pet = null;
 
         public override IPet CreateAnimal(int value)
         {
