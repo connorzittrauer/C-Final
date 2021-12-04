@@ -7,7 +7,7 @@ namespace ExcitingVirtualPetCore
 {
     class Sleeping : IPetState
     {
-        Pet pet;
+        private Pet pet;
 
         public Sleeping(Pet pet)
         {

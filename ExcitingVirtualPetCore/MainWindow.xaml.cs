@@ -12,12 +12,12 @@ namespace ExcitingVirtualPetCore
     public partial class MainWindow : Window
     {
 
-        IPet CurrentPet = null;
-        SaveFileDialog saveDialog;
-        OpenFileDialog openDialog;
-        Timer timer = new Timer();
-        ISimpleFactory factory;
-        Random rand = new Random();
+        private IPet CurrentPet = null;
+        private SaveFileDialog saveDialog;
+        private OpenFileDialog openDialog;
+        private Timer timer = new Timer();
+        private ISimpleFactory factory;
+        private Random rand = new Random();
         public MainWindow()
         {
             InitializeComponent();
@@ -68,7 +68,6 @@ namespace ExcitingVirtualPetCore
 
             factory = new Factory();
             CurrentPet = factory.CreateAnimal(rand.Next(1, 4));
-
             PetImage.Source = CurrentPet.currentImageState();
         }
 
@@ -97,7 +96,7 @@ namespace ExcitingVirtualPetCore
             }
         }
 
-        //UNIQUE EXTRA FEATURES-----------------------------------------------------------------------------------------
+        //UNIQUE EXTRA FEATURE-----------------------------------------------------------------------------------------
         private void startBlur()
         {
             blurringEffect.BeginAnimation(BlurEffect.RadiusProperty, new DoubleAnimation(30, TimeSpan.FromSeconds(3)));

@@ -14,10 +14,10 @@ namespace ExcitingVirtualPetCore
 
             CurrentFood = 1;
             CurrentWater = 1;
-            Hunger = 3;
+            Hunger = 7;
             Affection = 0;
             Thirst = 6;
-            Boredom = 8;
+            Boredom = 5;
             StartEating = 6;
             StartDrinking = 6;
             Sleepiness = 0;

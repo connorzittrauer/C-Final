@@ -1,13 +1,13 @@
-š{
+—{
   "TypeDiscriminator": 2,
   "TypeValue": {
-    "Sleepiness": 0,
-    "CurrentFood": 10,
-    "CurrentWater": 10,
-    "Hunger": 0,
-    "Affection": 9,
-    "Thirst": 2,
-    "Boredom": 10,
+    "Sleepiness": 1,
+    "CurrentFood": 1,
+    "CurrentWater": 2,
+    "Hunger": 8,
+    "Affection": 4,
+    "Thirst": 7,
+    "Boredom": 8,
     "StartEating": 6,
     "StartDrinking": 6,
     "CurrentlySleeping": false

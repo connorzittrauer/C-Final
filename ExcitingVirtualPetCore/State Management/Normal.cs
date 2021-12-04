@@ -6,7 +6,7 @@ namespace ExcitingVirtualPetCore
 {
     class Normal : IPetState
     {
-        Pet pet;
+        private Pet pet;
 
         public Normal(Pet pet)
         {
